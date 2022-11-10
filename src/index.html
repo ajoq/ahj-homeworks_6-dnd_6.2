@@ -9,38 +9,12 @@
 </head>
 <body>
     <section class="image-gallery">
-        <div class="form-container">
-            <form id="form">
-                <ul class="form-list">
-                    <li class="form-item">
-                        <label class="form-item__name" for="name">Название</label>
-                        <input class="form-item__input" type="text" id="name" name="name" required>
-                    </li>
-                    <li class="form-item">
-                        <label class="form-item__name" for="url">Ссылка на изображение</label>
-                        <div class="form-item__url">
-                            <input class="form-item__input" type="url" id="url" name="url" required>
-                            <span class="form-item__error">Неверный URL изображения</span>
-                        </div>
-                    </li>
-                    <li class="form-item">
-                        <button class="form-item__button" type="submit">Добавить</button>
-                    </li>
-                </ul>
-            </form>
+        <div class="file-container">
+            <input class="file-container__overlapped" type="file" multiple>
+            <span class="file-container__overlap">Drag and Drop files here<br>or Click to select</span>
         </div>
         <div class="images">
             <ul class="images-list">
-                <!-- <li class="images-item">
-                    <span class="images-item__del">x</span>
-                    <img class="images-item__img" src="https://top10a.ru/wp-content/uploads/2019/11/4-214.jpg" alt="Река">
-                    <span class="images-item__name">Река</span>
-                </li>
-                <li class="images-item">
-                    <span class="images-item__del">x</span>
-                    <img class="images-item__img" src="https://huntland.ru/wp-content/uploads/2018/11/severniy_olen1.jpg" alt="Олень">
-                    <span class="images-item__name">Олень</span>
-                </li> -->
             </ul>
         </div>
     </section>
