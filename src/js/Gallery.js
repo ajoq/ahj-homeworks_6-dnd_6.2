@@ -18,7 +18,10 @@ export default class Gallery {
       e.preventDefault();
       this.addImages(e.dataTransfer.files);
     });
-    this.fileInput.addEventListener('change', () => this.addImages(this.fileInput.files));
+    this.fileInput.addEventListener('change', () => {
+      this.addImages(this.fileInput.files);
+      this.fileInput.value = '';
+    });
     this.images.addEventListener('click', this.deleteImage.bind(this));
   }
 
@@ -26,11 +29,10 @@ export default class Gallery {
     this.errors.innerHTML = '';
 
     [...fileList].forEach((item) => {
-
-        if (!item.type.startsWith('image/') || item.type.includes('vnd')) {
-            this.showError(item.name);
-            return;
-        };
+      if (!item.type.startsWith('image/') || item.type.includes('vnd')) {
+        this.showError(item.name);
+        return;
+      }
 
       const img = document.createElement('img');
       img.classList.add('images-item__img');
