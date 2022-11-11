@@ -1,9 +1,8 @@
-/* eslint-disable class-methods-use-this */
-
 export default class Gallery {
   constructor() {
     this.fileContainer = document.querySelector('.file-container');
     this.fileInput = this.fileContainer.querySelector('.file-container__overlapped');
+    this.errors = document.querySelector('.errors-list');
     this.images = document.querySelector('.images');
     this.imagesList = this.images.querySelector('.images-list');
   }
@@ -24,7 +23,15 @@ export default class Gallery {
   }
 
   addImages(fileList) {
+    this.errors.innerHTML = '';
+
     [...fileList].forEach((item) => {
+
+        if (!item.type.startsWith('image/') || item.type.includes('vnd')) {
+            this.showError(item.name);
+            return;
+        };
+
       const img = document.createElement('img');
       img.classList.add('images-item__img');
       img.alt = item.name;
@@ -49,9 +56,16 @@ export default class Gallery {
   }
 
   deleteImage(e) {
+    this.errors.innerHTML = '';
     const del = e.target.closest('.images-item__del');
     const img = e.target.closest('.images-item');
     if (!del) return;
     img.remove();
+  }
+
+  showError(fileName) {
+    const li = document.createElement('li');
+    li.innerHTML = `"${fileName}": this format of file do not suitable`;
+    this.errors.append(li);
   }
 }

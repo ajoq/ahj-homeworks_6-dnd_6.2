@@ -10,8 +10,12 @@
 <body>
     <section class="image-gallery">
         <div class="file-container">
-            <input class="file-container__overlapped" type="file" multiple>
+            <input class="file-container__overlapped" type="file" accept="image/*" multiple>
             <span class="file-container__overlap">Drag and Drop files here<br>or Click to select</span>
+        </div>
+        <div class="errors">
+            <ul class="errors-list">
+            </ul>
         </div>
         <div class="images">
             <ul class="images-list">

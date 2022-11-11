@@ -2,7 +2,7 @@
     padding: 40px;
 }
 
-ul {
+ul.images-list {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -41,6 +41,8 @@ ul {
 .images-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .images-item {
@@ -67,4 +69,5 @@ ul {
 
 .images-item__img {
     max-width: 300px;
+    border: 1px solid #eee;
 }
